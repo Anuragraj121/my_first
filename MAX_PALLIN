@@ -1,0 +1,51 @@
+ 
+ 
+// TO FIND MAXIMUM SIZE OF PALINDROME IN STRING 
+/* TEST CASE 
+INPUT  -  MY NAME IS ANURAG IAM IN THIRD LEVEL
+OUTPUT -  LEVEL 
+EXPLANANTION( "MY" IS ALSO PALLINDROME BUT "LEVEL" HAS LENGTH 5)
+*/
+package Anurag_String;
+
+import java.util.*;
+public class longest_palli {
+
+	static int con = -1;
+	
+	public static int find(String str) {
+		String st1 = "";
+		for(int i =str.length()-1;i>=0;i--) {
+			st1 = st1 + str.charAt(i);
+		}//System.out.println(st1);
+		if(st1.equals(str)) {
+			return str.length();
+		}else {
+			return con; 
+		}
+	}
+	
+	public static void main(String[] args) {
+    
+		Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        sc.close();
+        String[] str1 = str.split(" ");
+        int[] count1 = new int[str1.length];
+        for(int i = 0;i<str1.length;i++) {
+        	
+        	count1[i]= find(str1[i]);   		
+        	
+        }
+		
+        int fin_ind = 0;
+        for(int i = 0 ; i < str1.length-1;i++) {
+        	if(count1[i+1]>count1[i]) {
+        		fin_ind = i+1;
+        	}
+        }
+        System.out.println(str1[fin_ind]);		
+
+	}
+                                                                       
+}
